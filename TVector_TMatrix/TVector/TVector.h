@@ -9,14 +9,17 @@ protected:
     size_t _size;
     T* pMem;
 public:
+    TVector() :_size(0), pMem(nullptr) {};
     TVector(size_t sz = 1) : _size(sz) {
         if (sz == 0)
             throw std::length_error("Vector size should be greater than zero");
         if (sz > MAX_VECTOR_SIZE)
             throw std::length_error("Vector size cannot be greater than MAX_VECTOR_SIZE = ", MAX_VECTOR_SIZE);
+        if (sz < 0)
+            throw std::length_error("Vector size cannot be less than zero");
+        if (sz == 0) { pMem = nullptr; return; }
         pMem = new T[sz]();
     }
-
     TVector(T* data, size_t sz) : _size(sz) {
         // еще один способ ввода исключений
         assert(data != nullptr && "TVector constructor requires non-nullptr argument.");
