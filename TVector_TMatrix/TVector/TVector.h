@@ -90,13 +90,27 @@ public:
         return not(*this == v);
     }
 
-    TVector operator+(double val);
-    TVector operator-(double val);
-    TVector operator*(double val);
-
-    TVector operator+(T val);
-    TVector operator-(T val);
-    TVector operator*(T val);
+    TVector operator+(T val) {
+        TVectore<T> tmp(this);
+        for (int i = 0; i < size; i++) {
+            tmp[i] = tmp[i] + val;
+        }
+        return tmp;
+    }
+    TVector operator-(T val) {
+        TVectore<T> tmp(this);
+        for (int i = 0; i < size; i++) {
+            tmp[i] = tmp[i] - val;
+        }
+        return tmp;
+    }
+    TVector operator*(T val) {
+        TVectore<T> tmp(this);
+        for (int i = 0; i < size; i++) {
+            tmp[i] = tmp[i] * val;
+        }
+        return tmp;
+    }
 
     TVector operator+(const TVector& v);
     TVector operator-(const TVector& v);
