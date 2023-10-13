@@ -14,7 +14,7 @@ public:
         if (sz == 0)
             throw std::length_error("Vector size should be greater than zero");
         if (sz > MAX_VECTOR_SIZE)
-            throw std::length_error("Vector size cannot be greater than MAX_VECTOR_SIZE = ", MAX_VECTOR_SIZE);
+            throw std::length_error("Vector size cannot be greater than MAX_VECTOR_SIZE = " + MAX_VECTOR_SIZE);
         if (sz < 0)
             throw std::length_error("Vector size cannot be less than zero");
         if (sz == 0) { pMem = nullptr; return; }
@@ -28,13 +28,27 @@ public:
         std::copy(data, data + sz, pMem);
     }
 
-    TVector(const TVector& v);
+    TVector(const TVector& v) : _size(v._size){
+        pMem = new T[v._size];
+        std::copy(data, data + sz, pMem);
+    }
 
-    TVector(TVector&& v) noexcept;
+    TVector(TVector&& v) noexcept : _size(0), pMem(nullptr) {
+        std::swap(v.pMem, pMem);
+        std::swap(v._size, _size);
+    }
 
-    ~TVector();
+    ~TVector() {
+        delete[] pMem;
+    }
 
-    TVector& operator=(const TVector& v);
+    TVector& operator=(const TVector& v) {
+        if (this == &v) { return *this; }
+        _size = v._size;
+        pMem = new T[_size];
+        std::copy(data, data + sz, pMem);
+        return *this;
+    }
 
     TVector& operator=(TVector&& v) noexcept;
 
@@ -69,8 +83,8 @@ public:
     friend void swap(TVector& lhs, TVector& rhs) noexcept;
 
     // ввод/вывод
-    friend istream& operator>>(istream& istr, TVector& v);
-    friend ostream& operator<<(ostream& ostr, const TVector& v);
+    friend std::istream& operator>>(std::istream& istr, TVector& v);
+    friend std::ostream& operator<<(std::ostream& ostr, const TVector& v);
 };
 
 template<typename T>
