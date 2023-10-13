@@ -50,21 +50,45 @@ public:
         return *this;
     }
 
-    TVector& operator=(TVector&& v) noexcept;
+    TVector& operator=(TVector&& v) noexcept {
+        if (this == &bf) { return *this; }
+        delete[] pMem;
+        pMem = nullptr;
+        _size = 0;
+        std::swap(pMem, v.pMem);
+        std::swap(_size, v._size);
+        return *this;
+    }
 
-    size_t size() const noexcept;
+    size_t size() const noexcept { return _size; }
 
     // индексаци€
-    T& operator[](size_t ind);
-    const T& operator[](size_t ind) const;
+    T& operator[](size_t ind) {
+        return pMem[ind];
+    }
+    const T& operator[](size_t ind) const {
+        return pMem[ind];
+    }
 
     // индексаци€ с контролем - почитать в чЄм разница и объ€снить при сдаче работы
-    T& at(size_t ind);
-    const T& at(size_t ind) const;
+    T& at(size_t ind) {
+        if ((ind > _size - 1) && (ind < 0)) { throw std::out_of_range("Index out of range"); }
+        return pMem[ind];
+    }
+    const T& at(size_t ind) const {
+        if ((ind > _size - 1) && (ind < 0)) { throw std::out_of_range("Index out of range"); }
+        return pMem[ind];
+    }
 
     // сравнение
-    bool operator==(const TVector& v) const noexcept;
-    bool operator!=(const TVector& v) const noexcept;
+    bool operator==(const TVector& v) const noexcept {
+        if (_size != v._size) { return false; }
+        for (int i = 0; i < _size; i++) { if (pMem[i] != v.pMem[i]) { return false; } }
+        return true;
+    }
+    bool operator!=(const TVector& v) const noexcept {
+        return not(*this == v);
+    }
 
     TVector operator+(double val);
     TVector operator-(double val);
