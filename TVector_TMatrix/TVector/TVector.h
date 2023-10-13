@@ -30,7 +30,7 @@ public:
 
     TVector(const TVector& v) : _size(v._size){
         pMem = new T[v._size];
-        std::copy(data, data + sz, pMem);
+        std::copy(v.pMem, v.pMem + _size, pMem);
     }
 
     TVector(TVector&& v) noexcept : _size(0), pMem(nullptr) {
@@ -46,12 +46,12 @@ public:
         if (this == &v) { return *this; }
         _size = v._size;
         pMem = new T[_size];
-        std::copy(data, data + sz, pMem);
+        std::copy(v.pMem, v.pMem + _size, pMem);
         return *this;
     }
 
     TVector& operator=(TVector&& v) noexcept {
-        if (this == &bf) { return *this; }
+        if (this == &v) { return *this; }
         delete[] pMem;
         pMem = nullptr;
         _size = 0;
@@ -91,32 +91,53 @@ public:
     }
 
     TVector operator+(T val) {
-        TVectore<T> tmp(this);
-        for (int i = 0; i < size; i++) {
+        TVector<T> tmp(this);
+        for (int i = 0; i < _size; i++) {
             tmp[i] = tmp[i] + val;
         }
         return tmp;
     }
     TVector operator-(T val) {
-        TVectore<T> tmp(this);
-        for (int i = 0; i < size; i++) {
+        TVector<T> tmp(this);
+        for (int i = 0; i < _size; i++) {
             tmp[i] = tmp[i] - val;
         }
         return tmp;
     }
     TVector operator*(T val) {
-        TVectore<T> tmp(this);
-        for (int i = 0; i < size; i++) {
+        TVector<T> tmp(this);
+        for (int i = 0; i < _size; i++) {
             tmp[i] = tmp[i] * val;
         }
         return tmp;
     }
 
-    TVector operator+(const TVector& v);
-    TVector operator-(const TVector& v);
+    TVector operator+(const TVector& v) {
+        if (_size != v._size) { throw std::logic_error("Unequal dimensions"); }
+        TVector<T> tmp(this);
+        for (int i = 0; i < _size; i++) {
+            tmp[i] = tmp[i] + v[i];
+        }
+        return tmp;
+    }
+    TVector operator-(const TVector& v) {
+        if (_size != v._size) { throw std::logic_error("Unequal dimensions"); }
+        TVector<T> tmp(this);
+        for (int i = 0; i < _size; i++) {
+            tmp[i] = tmp[i] - v[i];
+        }
+        return tmp;
+    }
 
     // почитать о noexcept(noexcept(T())) - объ€снить назначение при сдаче
-    T operator*(const TVector& v) noexcept(noexcept(T()));
+    T operator*(const TVector& v) noexcept(noexcept(T())) {
+        if (_size != v._size) { throw std::logic_error("Unequal dimensions"); }
+        T tmp = this[0] + v[0];
+        for (int i = 1; i < _size; i++) {
+            tmp = tmp + v[i] * this[i];
+        }
+        return tmp;
+    }
 
     friend void swap(TVector& lhs, TVector& rhs) noexcept;
 

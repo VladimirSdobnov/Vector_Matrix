@@ -1,2 +1,8 @@
-﻿test_vector.obj : error LNK2019: ссылка на неразрешенный внешний символ "public: __cdecl TVector<int>::~TVector<int>(void)" (??1?$TVector@H@@QEAA@XZ) в функции "private: virtual void __cdecl TVector_can_create_vector_with_positive_length_Test::TestBody(void)" (?TestBody@TVector_can_create_vector_with_positive_length_Test@@EEAAXXZ).
-C:\Users\vovaf\source\Vector_Matrix\TVector_TMatrix\x64\Debug\Tests.exe : fatal error LNK1120: неразрешенных внешних элементов: 1
+﻿  test_matrix.cpp
+C:\Users\vovaf\source\Vector_Matrix\TVector_TMatrix\qtest\gtest.h(1,1): warning C4005: _SILENCE_TR1_NAMESPACE_DEPRECATION_WARNING: изменение макроопределения
+C:\Users\vovaf\source\Vector_Matrix\TVector_TMatrix\qtest\gtest.h(1,1): message : "_SILENCE_TR1_NAMESPACE_DEPRECATION_WARNING" ранее объявлен в командной строке
+  test_vector.cpp
+C:\Users\vovaf\source\Vector_Matrix\TVector_TMatrix\qtest\gtest.h(1,1): warning C4005: _SILENCE_TR1_NAMESPACE_DEPRECATION_WARNING: изменение макроопределения
+C:\Users\vovaf\source\Vector_Matrix\TVector_TMatrix\qtest\gtest.h(1,1): message : "_SILENCE_TR1_NAMESPACE_DEPRECATION_WARNING" ранее объявлен в командной строке
+  Создание кода...
+  Tests.vcxproj -> C:\Users\vovaf\source\Vector_Matrix\TVector_TMatrix\x64\Debug\Tests.exe
