@@ -81,11 +81,11 @@ public:
 
     // индексаци€ с контролем - почитать в чЄм разница и объ€снить при сдаче работы
     T& at(size_t ind) {
-        if ((ind > _size - 1) && (ind < 0)) { throw std::out_of_range("Index out of range"); }
+        if ((ind > _size - 1) || (ind < 0)) { throw std::out_of_range("Index out of range"); }
         return pMem[ind];
     }
     const T& at(size_t ind) const {
-        if ((ind > _size - 1) && (ind < 0)) { throw std::out_of_range("Index out of range"); }
+        if ((ind > _size - 1) || (ind < 0)) { throw std::out_of_range("Index out of range"); }
         return pMem[ind];
     }
 
@@ -100,21 +100,21 @@ public:
     }
 
     TVector operator+(T val) {
-        TVector<T> tmp(this);
+        TVector<T> tmp(*this);
         for (int i = 0; i < _size; i++) {
             tmp[i] = tmp[i] + val;
         }
         return tmp;
     }
     TVector operator-(T val) {
-        TVector<T> tmp(this);
+        TVector<T> tmp(*this);
         for (int i = 0; i < _size; i++) {
             tmp[i] = tmp[i] - val;
         }
         return tmp;
     }
     TVector operator*(T val) {
-        TVector<T> tmp(this);
+        TVector<T> tmp(*this);
         for (int i = 0; i < _size; i++) {
             tmp[i] = tmp[i] * val;
         }
@@ -123,7 +123,7 @@ public:
 
     TVector operator+(const TVector& v) {
         if (_size != v._size) { throw std::logic_error("Unequal dimensions"); }
-        TVector<T> tmp(this);
+        TVector<T> tmp(*this);
         for (int i = 0; i < _size; i++) {
             tmp[i] = tmp[i] + v[i];
         }
@@ -131,7 +131,7 @@ public:
     }
     TVector operator-(const TVector& v) {
         if (_size != v._size) { throw std::logic_error("Unequal dimensions"); }
-        TVector<T> tmp(this);
+        TVector<T> tmp(*this);
         for (int i = 0; i < _size; i++) {
             tmp[i] = tmp[i] - v[i];
         }
@@ -141,9 +141,9 @@ public:
     // почитать о noexcept(noexcept(T())) - объ€снить назначение при сдаче
     T operator*(const TVector& v) noexcept(noexcept(T())) {
         if (_size != v._size) { throw std::logic_error("Unequal dimensions"); }
-        T tmp = this[0] + v[0];
+        T tmp = (*this)[0] * v[0];
         for (int i = 1; i < _size; i++) {
-            tmp = tmp + v[i] * this[i];
+            tmp = tmp + v[i] * (*this)[i];
         }
         return tmp;
     }
