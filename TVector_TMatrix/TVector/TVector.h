@@ -2,8 +2,17 @@
 
 const int MAX_VECTOR_SIZE = 100000000;
 #include <iostream>
+#include <string>
+#include <assert.h>
 
-template<typename T>
+template<class T>
+class TVector;
+template<class T>
+std::istream& operator>>(std::istream& istr, TVector<T>& v);
+template<class T>
+std::ostream& operator<<(std::ostream& ostr, const TVector<T>& v);
+
+template<class T>
 class TVector {
 protected:
     size_t _size;
@@ -14,7 +23,7 @@ public:
         if (sz == 0)
             throw std::length_error("Vector size should be greater than zero");
         if (sz > MAX_VECTOR_SIZE)
-            throw std::length_error("Vector size cannot be greater than MAX_VECTOR_SIZE = " + MAX_VECTOR_SIZE);
+            throw std::length_error("Vector size cannot be greater than MAX_VECTOR_SIZE = " + std::to_string(MAX_VECTOR_SIZE));
         if (sz < 0)
             throw std::length_error("Vector size cannot be less than zero");
         if (sz == 0) { pMem = nullptr; return; }
@@ -142,27 +151,28 @@ public:
     friend void swap(TVector& lhs, TVector& rhs) noexcept;
 
     // ввод/вывод
-    friend std::istream& operator>>(std::istream& istr, TVector& v);
-    friend std::ostream& operator<<(std::ostream& ostr, const TVector& v);
+    friend std::istream& operator>> <T>(std::istream& istr, TVector& v);
+    friend std::ostream& operator<< <T>(std::ostream& ostr, const TVector& v);
 };
 
-template<typename T>
+template<class T>
 void swap(TVector<T>& lhs, TVector<T>& rhs) noexcept {
-    std::swap(lhs.sz, rhs.sz);
+    std::swap(lhs._size, rhs._size);
     std::swap(lhs.pMem, rhs.pMem);
 }
 
 // ввод/вывод
-template<typename T>
-std::istream& operator>>(std::istream& istr, TVector<T>& v) {
-    for (size_t i = 0; i < v.sz; i++)
-        istr >> v.pMem[i];
+template<class T>
+std::istream& operator>> <T>(std::istream& istr, TVector<T>& v) {
+    for (size_t i = 0; i < v._size; i++)
+        istr >> v[i];
     return istr;
 }
 
-template<typename T>
-std::ostream& operator<<(std::ostream& ostr, const TVector<T>& v) {
-    for (size_t i = 0; i < v.sz; i++)
+template<class T>
+std::ostream& operator<< <T>(std::ostream& ostr, const TVector<T>& v) {
+    for (size_t i = 0; i < v._size; i++) {
         ostr << v.pMem[i] << ' ';
+    }
     return ostr;
 }
