@@ -1,57 +1,33 @@
-﻿  main.cpp
+﻿  test_matrix.cpp
 C:\Users\vovaf\source\Vector_Matrix\TVector_TMatrix\qtest\gtest.h(1,1): warning C4005: _SILENCE_TR1_NAMESPACE_DEPRECATION_WARNING: изменение макроопределения
 C:\Users\vovaf\source\Vector_Matrix\TVector_TMatrix\qtest\gtest.h(1,1): message : "_SILENCE_TR1_NAMESPACE_DEPRECATION_WARNING" ранее объявлен в командной строке
-  test_matrix.cpp
-C:\Users\vovaf\source\Vector_Matrix\TVector_TMatrix\TVector\TVector.h(69,19): error C2143: синтаксическая ошибка: отсутствие ";" перед "&"
-C:\Users\vovaf\source\Vector_Matrix\TVector_TMatrix\TVector\TVector.h(71,2): message : выполняется компиляция ссылки на экземпляр класс шаблон функции "TVector<T>"
-C:\Users\vovaf\source\Vector_Matrix\TVector_TMatrix\TVector\TVector.h(69,12): error C2433: istream: "friend" не разрешается для объявлений данных
-C:\Users\vovaf\source\Vector_Matrix\TVector_TMatrix\TVector\TVector.h(69,1): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
-C:\Users\vovaf\source\Vector_Matrix\TVector_TMatrix\TVector\TVector.h(69,58): error C2238: непредвиденные лексемы перед ";"
-C:\Users\vovaf\source\Vector_Matrix\TVector_TMatrix\TVector\TVector.h(70,19): error C2143: синтаксическая ошибка: отсутствие ";" перед "&"
-C:\Users\vovaf\source\Vector_Matrix\TVector_TMatrix\TVector\TVector.h(70,12): error C2433: ostream: "friend" не разрешается для объявлений данных
-C:\Users\vovaf\source\Vector_Matrix\TVector_TMatrix\TVector\TVector.h(70,1): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
-C:\Users\vovaf\source\Vector_Matrix\TVector_TMatrix\TVector\TVector.h(70,64): error C2238: непредвиденные лексемы перед ";"
-C:\Users\vovaf\source\Vector_Matrix\TVector_TMatrix\TMatrix\matrix.h(39,17): error C2143: синтаксическая ошибка: отсутствие ";" перед "&"
-C:\Users\vovaf\source\Vector_Matrix\TVector_TMatrix\TMatrix\matrix.h(41,2): message : выполняется компиляция ссылки на экземпляр класс шаблон функции "TMatrix<T>"
-C:\Users\vovaf\source\Vector_Matrix\TVector_TMatrix\TMatrix\matrix.h(39,10): error C2433: istream: "friend" не разрешается для объявлений данных
-C:\Users\vovaf\source\Vector_Matrix\TVector_TMatrix\TMatrix\matrix.h(39,1): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
-C:\Users\vovaf\source\Vector_Matrix\TVector_TMatrix\TMatrix\matrix.h(39,56): error C2238: непредвиденные лексемы перед ";"
-C:\Users\vovaf\source\Vector_Matrix\TVector_TMatrix\TMatrix\matrix.h(40,17): error C2143: синтаксическая ошибка: отсутствие ";" перед "&"
-C:\Users\vovaf\source\Vector_Matrix\TVector_TMatrix\TMatrix\matrix.h(40,10): error C2433: ostream: "friend" не разрешается для объявлений данных
-C:\Users\vovaf\source\Vector_Matrix\TVector_TMatrix\TMatrix\matrix.h(40,1): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
-C:\Users\vovaf\source\Vector_Matrix\TVector_TMatrix\TMatrix\matrix.h(40,62): error C2238: непредвиденные лексемы перед ";"
-C:\Users\vovaf\source\Vector_Matrix\TVector_TMatrix\qtest\gtest.h(1,1): warning C4005: _SILENCE_TR1_NAMESPACE_DEPRECATION_WARNING: изменение макроопределения
-C:\Users\vovaf\source\Vector_Matrix\TVector_TMatrix\qtest\gtest.h(1,1): message : "_SILENCE_TR1_NAMESPACE_DEPRECATION_WARNING" ранее объявлен в командной строке
-C:\Users\vovaf\source\Vector_Matrix\TVector_TMatrix\TMatrix\matrix.h(14,30): error C2039: "sz": не является членом "TVector<TVector<T>>".
-          with
-          [
-              T=int
-          ]
-C:\Users\vovaf\source\Vector_Matrix\TVector_TMatrix\TMatrix\matrix.h(12,25): message : см. объявление "TVector<TVector<T>>"
-          with
-          [
-              T=int
-          ]
-C:\Users\vovaf\source\Vector_Matrix\TVector_TMatrix\TMatrix\matrix.h(14,3): error C2873: sz: использование символа в "using"-объявлении не допускается
   test_vector.cpp
-C:\Users\vovaf\source\Vector_Matrix\TVector_TMatrix\TVector\TVector.h(69,19): error C2143: синтаксическая ошибка: отсутствие ";" перед "&"
-C:\Users\vovaf\source\Vector_Matrix\TVector_TMatrix\TVector\TVector.h(71,2): message : выполняется компиляция ссылки на экземпляр класс шаблон функции "TVector<T>"
-C:\Users\vovaf\source\Vector_Matrix\TVector_TMatrix\TVector\TVector.h(69,12): error C2433: istream: "friend" не разрешается для объявлений данных
-C:\Users\vovaf\source\Vector_Matrix\TVector_TMatrix\TVector\TVector.h(69,1): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
-C:\Users\vovaf\source\Vector_Matrix\TVector_TMatrix\TVector\TVector.h(69,58): error C2238: непредвиденные лексемы перед ";"
-C:\Users\vovaf\source\Vector_Matrix\TVector_TMatrix\TVector\TVector.h(70,19): error C2143: синтаксическая ошибка: отсутствие ";" перед "&"
-C:\Users\vovaf\source\Vector_Matrix\TVector_TMatrix\TVector\TVector.h(70,12): error C2433: ostream: "friend" не разрешается для объявлений данных
-C:\Users\vovaf\source\Vector_Matrix\TVector_TMatrix\TVector\TVector.h(70,1): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
-C:\Users\vovaf\source\Vector_Matrix\TVector_TMatrix\TVector\TVector.h(70,64): error C2238: непредвиденные лексемы перед ";"
-C:\Users\vovaf\source\Vector_Matrix\TVector_TMatrix\TMatrix\matrix.h(39,17): error C2143: синтаксическая ошибка: отсутствие ";" перед "&"
-C:\Users\vovaf\source\Vector_Matrix\TVector_TMatrix\TMatrix\matrix.h(41,2): message : выполняется компиляция ссылки на экземпляр класс шаблон функции "TMatrix<T>"
-C:\Users\vovaf\source\Vector_Matrix\TVector_TMatrix\TMatrix\matrix.h(39,10): error C2433: istream: "friend" не разрешается для объявлений данных
-C:\Users\vovaf\source\Vector_Matrix\TVector_TMatrix\TMatrix\matrix.h(39,1): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
-C:\Users\vovaf\source\Vector_Matrix\TVector_TMatrix\TMatrix\matrix.h(39,56): error C2238: непредвиденные лексемы перед ";"
-C:\Users\vovaf\source\Vector_Matrix\TVector_TMatrix\TMatrix\matrix.h(40,17): error C2143: синтаксическая ошибка: отсутствие ";" перед "&"
-C:\Users\vovaf\source\Vector_Matrix\TVector_TMatrix\TMatrix\matrix.h(40,10): error C2433: ostream: "friend" не разрешается для объявлений данных
-C:\Users\vovaf\source\Vector_Matrix\TVector_TMatrix\TMatrix\matrix.h(40,1): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
-C:\Users\vovaf\source\Vector_Matrix\TVector_TMatrix\TMatrix\matrix.h(40,62): error C2238: непредвиденные лексемы перед ";"
 C:\Users\vovaf\source\Vector_Matrix\TVector_TMatrix\qtest\gtest.h(1,1): warning C4005: _SILENCE_TR1_NAMESPACE_DEPRECATION_WARNING: изменение макроопределения
 C:\Users\vovaf\source\Vector_Matrix\TVector_TMatrix\qtest\gtest.h(1,1): message : "_SILENCE_TR1_NAMESPACE_DEPRECATION_WARNING" ранее объявлен в командной строке
+C:\Users\vovaf\source\Vector_Matrix\TVector_TMatrix\Tests\test_vector.cpp(50,29): warning C4305: инициализация: усечение из "double" в "float"
+C:\Users\vovaf\source\Vector_Matrix\TVector_TMatrix\Tests\test_vector.cpp(50,35): warning C4305: инициализация: усечение из "double" в "float"
+C:\Users\vovaf\source\Vector_Matrix\TVector_TMatrix\Tests\test_vector.cpp(50,40): warning C4305: инициализация: усечение из "double" в "float"
+C:\Users\vovaf\source\Vector_Matrix\TVector_TMatrix\qtest\gtest.h(18864,19): warning C4805: ==: небезопасное смешение типа "const T1" и типа "const T2" в операции
+          with
+          [
+              T1=bool
+          ]
+          and
+          [
+              T2=int
+          ]
+C:\Users\vovaf\source\Vector_Matrix\TVector_TMatrix\qtest\gtest.h(18900,12): message : выполняется компиляция ссылки на экземпляр шаблон функции "testing::AssertionResult testing::internal::CmpHelperEQ<T1,T2>(const char *,const char *,const T1 &,const T2 &)"
+          with
+          [
+              T1=bool,
+              T2=int
+          ]
+C:\Users\vovaf\source\Vector_Matrix\TVector_TMatrix\Tests\test_vector.cpp(99,2): message : выполняется компиляция ссылки на экземпляр шаблон функции "testing::AssertionResult testing::internal::EqHelper<false>::Compare<bool,int>(const char *,const char *,const T1 &,const T2 &)"
+          with
+          [
+              T1=bool,
+              T2=int
+          ]
+C:\Users\vovaf\source\Vector_Matrix\TVector_TMatrix\Tests\test_vector.cpp(99,2): message : см. первую ссылку на "testing::internal::EqHelper<false>::Compare" в "TVector_compare_equal_vectors_return_true_Test::TestBody"
   Создание кода...
+  Tests.vcxproj -> C:\Users\vovaf\source\Vector_Matrix\TVector_TMatrix\x64\Debug\Tests.exe

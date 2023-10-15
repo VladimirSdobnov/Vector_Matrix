@@ -36,8 +36,8 @@ public:
   TMatrix operator*(const TMatrix& m);
 
   // ввод/вывод
-  friend istream& operator>>(istream& istr, TMatrix& v);
-  friend ostream& operator<<(ostream& ostr, const TMatrix& v);
+  friend std::istream& operator>>(std::istream& istr, TMatrix& v);
+  friend std::ostream& operator<<(std::ostream& ostr, const TMatrix& v);
 };
 
 #endif  // INCLUDE_MATRIX_H_
