@@ -139,7 +139,7 @@ public:
     }
 
     // почитать о noexcept(noexcept(T())) - объ€снить назначение при сдаче
-    T operator*(const TVector& v) noexcept(noexcept(T())) {
+    T operator*(const TVector& v) noexcept(T()) {
         if (_size != v._size) { throw std::logic_error("Unequal dimensions"); }
         T tmp = (*this)[0] * v[0];
         for (int i = 1; i < _size; i++) {
