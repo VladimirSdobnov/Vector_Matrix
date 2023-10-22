@@ -27,7 +27,7 @@ public:
         if (sz < 0)
             throw std::length_error("Vector size cannot be less than zero");
         if (sz == 0) { pMem = nullptr; return; }
-        pMem = new T[sz]();
+        pMem = new T[sz];
     }
     TVector(T* data, size_t sz) : _size(sz) {
         // еще один способ ввода исключений
@@ -49,6 +49,7 @@ public:
 
     ~TVector() {
         delete[] pMem;
+        pMem = nullptr;
     }
 
     TVector& operator=(const TVector& v) {
@@ -141,6 +142,7 @@ public:
     // почитать о noexcept(noexcept(T())) - объ€снить назначение при сдаче
     T operator*(const TVector& v) noexcept(T()) {
         if (_size != v._size) { throw std::logic_error("Unequal dimensions"); }
+        if (_size == v._size == 0){ throw std::logic_error("null sized vectore"); }
         T tmp = (*this)[0] * v[0];
         for (int i = 1; i < _size; i++) {
             tmp = tmp + v[i] * (*this)[i];
@@ -163,14 +165,14 @@ void swap(TVector<T>& lhs, TVector<T>& rhs) noexcept {
 
 // ввод/вывод
 template<class T>
-std::istream& operator>> <T>(std::istream& istr, TVector<T>& v) {
+std::istream& operator>>(std::istream& istr, TVector<T>& v) {
     for (size_t i = 0; i < v._size; i++)
         istr >> v[i];
     return istr;
 }
 
 template<class T>
-std::ostream& operator<< <T>(std::ostream& ostr, const TVector<T>& v) {
+std::ostream& operator<<(std::ostream& ostr, const TVector<T>& v) {
     for (size_t i = 0; i < v._size; i++) {
         ostr << v.pMem[i] << ' ';
     }
