@@ -1,25 +1,33 @@
 ﻿  test_matrix.cpp
 D:\Visual Studio 2022\repos\Vector_Matrix\TVector_TMatrix\qtest\gtest.h(1,1): warning C4005: _SILENCE_TR1_NAMESPACE_DEPRECATION_WARNING: изменение макроопределения
 D:\Visual Studio 2022\repos\Vector_Matrix\TVector_TMatrix\qtest\gtest.h(1,1): message : "_SILENCE_TR1_NAMESPACE_DEPRECATION_WARNING" ранее объявлен в командной строке
-D:\Visual Studio 2022\repos\Vector_Matrix\TVector_TMatrix\TVector\TVector.h(30,16): error C2512: TVector<T>: нет подходящего конструктора по умолчанию
+  test_vector.cpp
+D:\Visual Studio 2022\repos\Vector_Matrix\TVector_TMatrix\qtest\gtest.h(1,1): warning C4005: _SILENCE_TR1_NAMESPACE_DEPRECATION_WARNING: изменение макроопределения
+D:\Visual Studio 2022\repos\Vector_Matrix\TVector_TMatrix\qtest\gtest.h(1,1): message : "_SILENCE_TR1_NAMESPACE_DEPRECATION_WARNING" ранее объявлен в командной строке
+D:\Visual Studio 2022\repos\Vector_Matrix\TVector_TMatrix\Tests\test_vector.cpp(50,29): warning C4305: инициализация: усечение из "double" в "float"
+D:\Visual Studio 2022\repos\Vector_Matrix\TVector_TMatrix\Tests\test_vector.cpp(50,35): warning C4305: инициализация: усечение из "double" в "float"
+D:\Visual Studio 2022\repos\Vector_Matrix\TVector_TMatrix\Tests\test_vector.cpp(50,40): warning C4305: инициализация: усечение из "double" в "float"
+D:\Visual Studio 2022\repos\Vector_Matrix\TVector_TMatrix\qtest\gtest.h(18864,19): warning C4805: ==: небезопасное смешение типа "const T1" и типа "const T2" в операции
           with
           [
-              T=int
+              T1=bool
           ]
-D:\Visual Studio 2022\repos\Vector_Matrix\TVector_TMatrix\TVector\TVector.h(22,5): message : во время компиляции функции-члена класс шаблон "TVector<TVector<T>>::TVector(size_t)"
+          and
+          [
+              T2=int
+          ]
+D:\Visual Studio 2022\repos\Vector_Matrix\TVector_TMatrix\qtest\gtest.h(18900,12): message : выполняется компиляция ссылки на экземпляр шаблон функции "testing::AssertionResult testing::internal::CmpHelperEQ<T1,T2>(const char *,const char *,const T1 &,const T2 &)"
           with
           [
-              T=int
+              T1=bool,
+              T2=int
           ]
-D:\Visual Studio 2022\repos\Vector_Matrix\TVector_TMatrix\TMatrix\matrix.h(16,46): message : см. первую ссылку на "TVector<TVector<T>>::TVector" в "TMatrix<int>::TMatrix"
+D:\Visual Studio 2022\repos\Vector_Matrix\TVector_TMatrix\Tests\test_vector.cpp(99,2): message : выполняется компиляция ссылки на экземпляр шаблон функции "testing::AssertionResult testing::internal::EqHelper<false>::Compare<bool,int>(const char *,const char *,const T1 &,const T2 &)"
           with
           [
-              T=int
+              T1=bool,
+              T2=int
           ]
-D:\Visual Studio 2022\repos\Vector_Matrix\TVector_TMatrix\Tests\test_matrix.cpp(5,3): message : см. первую ссылку на "TMatrix<int>::TMatrix" в "TMatrix_can_create_matrix_with_positive_length_Test::TestBody"
-D:\Visual Studio 2022\repos\Vector_Matrix\TVector_TMatrix\TMatrix\matrix.h(12,25): message : выполняется компиляция ссылки на экземпляр класс шаблон функции "TVector<TVector<T>>"
-          with
-          [
-              T=int
-          ]
-D:\Visual Studio 2022\repos\Vector_Matrix\TVector_TMatrix\Tests\test_matrix.cpp(5,3): message : выполняется компиляция ссылки на экземпляр класс шаблон функции "TMatrix<int>"
+D:\Visual Studio 2022\repos\Vector_Matrix\TVector_TMatrix\Tests\test_vector.cpp(99,2): message : см. первую ссылку на "testing::internal::EqHelper<false>::Compare" в "TVector_compare_equal_vectors_return_true_Test::TestBody"
+  Создание кода...
+  Tests.vcxproj -> D:\Visual Studio 2022\repos\Vector_Matrix\TVector_TMatrix\x64\Debug\Tests.exe

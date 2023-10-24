@@ -1,4 +1,4 @@
-// Copyright (c) Сдобнов Владимир
+// Copyright (c) Sdobnov Vladimir
 
 #ifndef INCLUDE_MATRIX_H_
 #define INCLUDE_MATRIX_H_
@@ -13,7 +13,7 @@ class TMatrix : private TVector<TVector<T>> {
   using TVector<TVector<T>>::pMem;
   using TVector<TVector<T>>::_size;
 public:
-  TMatrix(size_t s = 1) : TVector<TVector<T>>(s) {
+  TMatrix(size_t s) : TVector<TVector<T>>(s) {
     for (size_t i = 0; i < s; i++)
       pMem[i] = TVector<T>(s);
   }
