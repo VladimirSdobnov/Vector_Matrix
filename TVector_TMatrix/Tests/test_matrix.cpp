@@ -18,3 +18,15 @@ TEST(TMatrix, can_create_copied_matrix) {
 
   ASSERT_NO_THROW(TMatrix<int> m1(m));
 }
+
+TEST(TMatrix, can_out_copied_matrix) {
+	TMatrix<int> m(5);
+	int x = 0;
+	for (int i = 0; i < m.size(); i++) {
+		for (int j = 0; j < m.size(); j++) {
+			m[i][j] = x++;
+		}
+	}
+
+	ASSERT_NO_THROW(std::cout << m;);
+}
