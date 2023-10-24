@@ -19,7 +19,7 @@ protected:
     T* pMem;
 public:
     TVector() :_size(0), pMem(nullptr) {};
-    TVector(size_t sz = 1) : _size(sz) {
+    TVector(size_t sz) : _size(sz) {
         if (sz == 0)
             throw std::length_error("Vector size should be greater than zero");
         if (sz > MAX_VECTOR_SIZE)
