@@ -14,8 +14,12 @@ class TMatrix : private TVector<TVector<T>> {
   using TVector<TVector<T>>::_size;
 public:
   TMatrix(size_t s) : TVector<TVector<T>>(s) {
-    for (size_t i = 0; i < s; i++)
-      pMem[i] = TVector<T>(s);
+      if (s > MAX_MATRIX_SIZE)
+          throw std::length_error("Matrix size cannot be greater than MAX_VECTOR_SIZE = " + std::to_string(MAX_VECTOR_SIZE));
+      if (s < 0)
+          throw std::length_error("Matrix size cannot be less than zero");
+      for (size_t i = 0; i < s; i++)
+          pMem[i] = TVector<T>(s);
   }
   // почему можно сделать так? ќбъ€снить.
   using TVector<TVector<T>>::operator[];
