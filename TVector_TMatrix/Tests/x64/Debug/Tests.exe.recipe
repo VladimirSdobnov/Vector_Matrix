@@ -2,7 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>D:\Visual Studio 2022\repos\Vector_Matrix\TVector_TMatrix\x64\Debug\Tests.exe</FullPath>
+      <FullPath>D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\x64\Debug\Tests.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

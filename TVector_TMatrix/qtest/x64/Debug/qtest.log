@@ -1,4 +1,4 @@
 ﻿  gtest-all.cc
-D:\Visual Studio 2022\repos\Vector_Matrix\TVector_TMatrix\qtest\gtest.h(1,1): warning C4005: _SILENCE_TR1_NAMESPACE_DEPRECATION_WARNING: изменение макроопределения
-D:\Visual Studio 2022\repos\Vector_Matrix\TVector_TMatrix\qtest\gtest.h(1,1): message : "_SILENCE_TR1_NAMESPACE_DEPRECATION_WARNING" ранее объявлен в командной строке
-  qtest.vcxproj -> D:\Visual Studio 2022\repos\Vector_Matrix\TVector_TMatrix\x64\Debug\qtest.lib
+D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\qtest\gtest.h(1,1): warning C4005: _SILENCE_TR1_NAMESPACE_DEPRECATION_WARNING: изменение макроопределения
+D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\qtest\gtest.h(1,1): message : "_SILENCE_TR1_NAMESPACE_DEPRECATION_WARNING" ранее объявлен в командной строке
+  qtest.vcxproj -> D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\x64\Debug\qtest.lib
