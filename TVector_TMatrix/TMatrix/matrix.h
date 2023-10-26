@@ -21,41 +21,80 @@ class TMatrix : private TVector<TVector<T>> {
   using TVector<TVector<T>>::_size;
 public:
   TMatrix(size_t s) : TVector<TVector<T>>(s) {
-<<<<<<< HEAD
       if (s > MAX_MATRIX_SIZE)
           throw std::length_error("Matrix size cannot be greater than MAX_VECTOR_SIZE = " + std::to_string(MAX_VECTOR_SIZE));
       if (s < 0)
           throw std::length_error("Matrix size cannot be less than zero");
       for (size_t i = 0; i < s; i++)
           pMem[i] = TVector<T>(s);
-=======
-    for (size_t i = 0; i < s; i++)
-      pMem[i] = TVector<T>(s);
->>>>>>> main
   }
   // почему можно сделать так? ќбъ€снить.
   using TVector<TVector<T>>::operator[];
+  using TVector<TVector<T>>::at;
   using TVector<TVector<T>>::size;
 
   // сравнение
-  bool operator==(const TMatrix& m) const noexcept { return *this == m; }
-  bool operator!=(const TMatrix& m) const noexcept { return *this != m; }
+  bool operator==(const TMatrix& m) const noexcept {
+      if (_size != m._size) { return false; }
+      for (int i = 0; i < _size; i++) {
+          if (pMem[i] != m.pMem[i]) { return false; }
+      }
+      return true;
+  }
+  bool operator!=(const TMatrix& m) const noexcept { return !(*this == m); }
 
   // матрично-скал€рные операции
   TMatrix operator*(const T& val) {
       TMatrix<T> tmp(*this);
-      return tmp * val;
+      for (int i = 0; i < _size; i++) {
+          tmp[i] = tmp[i] * val;
+      }
+      return tmp;
   }
 
   // матрично-векторные операции
   TVector<T> operator*(const TVector<T>& v) {
-
+      if (v.size() != _size) { throw std::logic_error("Not equl size, operation not defined"); }
+      TVector<T> tmp(v);
+      for (int i = 0; i < _size; i++) {
+          tmp[i] = pMem[i] * v;
+      }
+      return tmp;
   }
 
   // матрично-матричные операции
-  TMatrix operator+(const TMatrix& m) {}
-  TMatrix operator-(const TMatrix& m) {}
-  TMatrix operator*(const TMatrix& m) {}
+  TMatrix operator+(const TMatrix& m) {
+      if (m._size != _size) { throw std::logic_error("Not equl size, operation not defined"); }
+      TMatrix<T> tmp(*this);
+      for (int i = 0; i < _size; i++) {
+          tmp[i] = tmp[i] + m[i];
+      }
+      return tmp;
+  }
+  TMatrix operator-(const TMatrix& m) {
+      if (m._size != _size) { throw std::logic_error("Not equl size, operation not defined"); }
+      TMatrix<T> tmp(*this);
+      for (int i = 0; i < _size; i++) {
+          tmp[i] = tmp[i] - m[i];
+      }
+      return tmp;
+  }
+  TMatrix operator*(const TMatrix& m) {
+      if (m._size != _size) { throw std::logic_error("Not equl size, operation not defined"); }
+      TMatrix<T> tmp(_size);
+      for (int i = 0; i < _size; i++) {
+          for (int j = 0; j < _size; j++) {
+              tmp[i][j] = m[j][i];
+          }
+      }
+      TMatrix<T> res(_size);
+      for (int i = 0; i < _size; i++) {
+          for (int j = 0; j < _size; j++) {
+              res[i][j] = pMem[i] * tmp[j];
+          }
+      }
+      return res;
+  }
 
   // ввод/вывод
   friend std::istream& operator>> <T>(std::istream& istr, TMatrix& v);
