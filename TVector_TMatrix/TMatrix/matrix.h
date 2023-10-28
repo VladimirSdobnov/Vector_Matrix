@@ -14,9 +14,13 @@ template<class T>
 std::istream& operator>>(std::istream& istr, TMatrix<T>& v);
 template<class T>
 std::ostream& operator<<(std::ostream& ostr, const TMatrix<T>& m);
+template<class T>
+class UpTrianglTMatrix;
+
 
 template<typename T>
 class TMatrix : private TVector<TVector<T>> {
+protected:
   using TVector<TVector<T>>::pMem;
   using TVector<TVector<T>>::_size;
 public:
@@ -117,3 +121,33 @@ std::ostream& operator<<(std::ostream& ostr, const TMatrix<T>& m) {
     }
     return ostr;
 }
+
+template<class T>
+class UpTrianglTMatrix : public TMatrix<T> {
+    using TMatrix<T>::pMem;
+    using TMatrix<T>::_size;
+public:
+    UpTrianglTMatrix(size_t s) : TMatrix<T>(s) {
+        for (size_t i = 0; i < s; i++)
+            pMem[i] = TVector<T>(s - i);
+    }
+    using TMatrix<T>::operator[];
+    using TMatrix<T>::at;
+    using TMatrix<T>::size;
+    using TMatrix<T>::operator==;
+    using TMatrix<T>::operator!=;
+    using TMatrix<T>::operator=;
+
+    /*TVector<T> operator*(const TVector<T>& v) {
+        if (v.size() != _size) { throw std::logic_error("Not equl size, operation not defined"); }
+        TVector<T> res(v);
+        for (int i = 0; i < _size; i++) {
+            TVector<T> tmp(pMem[i].size());
+            for (int i = 0; i < tmp.size(); i++) { tmp[i] = v[i]; }
+            res[i] = pMem[i] * tmp;;
+        }
+        return res;
+    }*/
+
+    friend std::ostream& operator<< <T>(std::ostream& ostr, const TMatrix<T>& v);
+};
