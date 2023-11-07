@@ -199,3 +199,11 @@ TEST(TVector, cant_multiply_vectors_with_not_equal_size) {
 	TVector<unsigned int> v2(mass_str2, 8);
 	ASSERT_ANY_THROW(v * v2);
 }
+
+TEST(TVector, can_iterator) {
+	unsigned int mass_str[5] = { 4, 6 , 4, 45, 5 };
+	TVector<unsigned int> v(mass_str, 5);
+	for (TVector<unsigned int>::iterator i = v.begin(); i != v.end(); ++i) {
+		std::cout << *i << " ";
+	}
+}

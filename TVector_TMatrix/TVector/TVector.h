@@ -12,6 +12,27 @@ std::istream& operator>>(std::istream& istr, TVector<T>& v);
 template<class T>
 std::ostream& operator<<(std::ostream& ostr, const TVector<T>& v);
 
+//Iterator
+
+#include <iterator>
+template<class T>
+class InIterator : public std::iterator<std::input_iterator_tag, T> {
+    friend class TVector<T>;
+private:
+    InIterator(T* _p) : p(_p) {};
+public:
+    InIterator(const InIterator& it) : p(it.p) {};
+    bool operator!=(InIterator const& other) const { return *this == other; }
+    bool operator==(InIterator const& other) const { return *this != other; }
+    T& operator*() const { return *p; } //typename Iterator<T>::reference operator*() const;
+    InIterator& operator++() { p++; return *this; }
+private:
+    T* p;
+};
+
+
+//Vector
+
 template<class T>
 class TVector {
 protected:
@@ -51,6 +72,17 @@ public:
         delete[] pMem;
         pMem = nullptr;
     }
+
+    typedef InIterator<T> iterator;
+    typedef InIterator<const T> const_iterator;
+
+    iterator begin() { return iterator(pMem); }
+    iterator end() { return iterator(pMem + _size); }
+    const_iterator begin() const { return iterator(pMem); }
+    const_iterator end() const { return iterator(pMem + _size); }
+
+
+
 
     TVector& operator=(const TVector& v) {
         if (this == &v) { return *this; }
@@ -178,3 +210,5 @@ std::ostream& operator<<(std::ostream& ostr, const TVector<T>& v) {
     }
     return ostr;
 }
+
+

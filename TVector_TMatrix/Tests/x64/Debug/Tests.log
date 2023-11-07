@@ -1,4 +1,66 @@
 ﻿  test_matrix.cpp
 D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\qtest\gtest.h(1,1): warning C4005: _SILENCE_TR1_NAMESPACE_DEPRECATION_WARNING: изменение макроопределения
 D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\qtest\gtest.h(1,1): message : "_SILENCE_TR1_NAMESPACE_DEPRECATION_WARNING" ранее объявлен в командной строке
-  Tests.vcxproj -> D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\x64\Debug\Tests.exe
+D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\TVector\TVector.h(82,34): error C2440: return: невозможно преобразовать "InIterator<T>" в "InIterator<const T>"
+          with
+          [
+              T=int
+          ]
+D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\TVector\TVector.h(82,34): message : Для выполнения данного преобразования нет доступного оператора преобразования, определенного пользователем, или вызов оператора невозможен
+D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\TVector\TVector.h(82,20): message : во время компиляции функции-члена класс шаблон "InIterator<const T> TVector<T>::end(void) const"
+          with
+          [
+              T=int
+          ]
+D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\qtest\gtest.h(9469,3): message : см. первую ссылку на "TVector<T>::end" в "testing::internal::DefaultPrintTo"
+          with
+          [
+              T=int
+          ]
+D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\Tests\test_matrix.cpp(42,10): message : выполняется компиляция ссылки на экземпляр класс шаблон функции "TVector<T>"
+          with
+          [
+              T=int
+          ]
+  test_vector.cpp
+D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\qtest\gtest.h(1,1): warning C4005: _SILENCE_TR1_NAMESPACE_DEPRECATION_WARNING: изменение макроопределения
+D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\qtest\gtest.h(1,1): message : "_SILENCE_TR1_NAMESPACE_DEPRECATION_WARNING" ранее объявлен в командной строке
+D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\Tests\test_vector.cpp(50,29): warning C4305: инициализация: усечение из "double" в "float"
+D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\Tests\test_vector.cpp(50,35): warning C4305: инициализация: усечение из "double" в "float"
+D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\Tests\test_vector.cpp(50,40): warning C4305: инициализация: усечение из "double" в "float"
+D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\qtest\gtest.h(18864,19): warning C4805: ==: небезопасное смешение типа "const T1" и типа "const T2" в операции
+          with
+          [
+              T1=bool
+          ]
+          and
+          [
+              T2=int
+          ]
+D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\qtest\gtest.h(18900,12): message : выполняется компиляция ссылки на экземпляр шаблон функции "testing::AssertionResult testing::internal::CmpHelperEQ<T1,T2>(const char *,const char *,const T1 &,const T2 &)"
+          with
+          [
+              T1=bool,
+              T2=int
+          ]
+D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\Tests\test_vector.cpp(99,2): message : выполняется компиляция ссылки на экземпляр шаблон функции "testing::AssertionResult testing::internal::EqHelper<false>::Compare<bool,int>(const char *,const char *,const T1 &,const T2 &)"
+          with
+          [
+              T1=bool,
+              T2=int
+          ]
+D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\Tests\test_vector.cpp(99,2): message : см. первую ссылку на "testing::internal::EqHelper<false>::Compare" в "TVector_compare_equal_vectors_return_true_Test::TestBody"
+D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\TVector\TVector.h(82,34): error C2440: return: невозможно преобразовать "InIterator<T>" в "InIterator<const T>"
+          with
+          [
+              T=unsigned int
+          ]
+D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\TVector\TVector.h(82,34): message : Для выполнения данного преобразования нет доступного оператора преобразования, определенного пользователем, или вызов оператора невозможен
+D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\TVector\TVector.h(82,20): message : во время компиляции функции-члена класс шаблон "InIterator<const T> TVector<T>::end(void) const"
+          with
+          [
+              T=unsigned int
+          ]
+D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\qtest\gtest.h(9469,3): message : см. первую ссылку на "TVector<unsigned int>::end" в "testing::internal::DefaultPrintTo"
+D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\Tests\test_vector.cpp(57,24): message : выполняется компиляция ссылки на экземпляр класс шаблон функции "TVector<unsigned int>"
+  Создание кода...
