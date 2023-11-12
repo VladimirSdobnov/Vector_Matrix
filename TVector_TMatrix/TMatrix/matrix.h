@@ -19,7 +19,7 @@ class UpTrianglTMatrix;
 
 
 template<typename T>
-class TMatrix : private TVector<TVector<T>> {
+class TMatrix : public TVector<TVector<T>> {
 protected:
   using TVector<TVector<T>>::pMem;
   using TVector<TVector<T>>::_size;
@@ -58,8 +58,7 @@ public:
 
   // матрично-векторные операции
   TVector<T> operator*(const TVector<T>& v) {
-      if (v.size() != _size) { throw std::logic_error("Not equl size, operation not defined"); }
-      TVector<T> tmp(v);
+      TVector<T> tmp(_size);
       for (int i = 0; i < _size; i++) {
           tmp[i] = pMem[i] * v;
       }
@@ -86,16 +85,25 @@ public:
   TMatrix operator*(const TMatrix& m) {
       if (m._size != _size) { throw std::logic_error("Not equl size, operation not defined"); }
       TMatrix<T> tmp(_size);
-      for (int i = 0; i < _size; i++) {
-          for (int j = 0; j < _size; j++) {
-              tmp[i][j] = m[j][i];
+      for (int i = 0; i < m._size; i++) {
+          TVector<T> vec;
+          for (int j = 0; j < m._size; j++) {
+              if (i < m[j].start()) { break; }
+              vec.append(m[j][i]);
           }
+          if (m._size != m[i].size() || (i == m._size - 1 && m[i - 1].size() != _size)) {
+              vec.set_start(m[i].size() - 1);
+          }
+          tmp[i] = vec;
       }
       TMatrix<T> res(_size);
       for (int i = 0; i < _size; i++) {
+          TVector<T> vec;
           for (int j = 0; j < _size; j++) {
-              res[i][j] = pMem[i] * tmp[j];
+              if (j > pMem[i].size() - 1) { break; }
+              vec.append(pMem[i] * tmp[j]);
           }
+          res[i] = vec;
       }
       return res;
   }
@@ -129,25 +137,55 @@ class UpTrianglTMatrix : public TMatrix<T> {
 public:
     UpTrianglTMatrix(size_t s) : TMatrix<T>(s) {
         for (size_t i = 0; i < s; i++)
-            pMem[i] = TVector<T>(s - i);
+            pMem[i] = TVector<T>(s, i);
     }
     using TMatrix<T>::operator[];
     using TMatrix<T>::at;
     using TMatrix<T>::size;
-    using TMatrix<T>::operator==;
-    using TMatrix<T>::operator!=;
     using TMatrix<T>::operator=;
 
-    /*TVector<T> operator*(const TVector<T>& v) {
-        if (v.size() != _size) { throw std::logic_error("Not equl size, operation not defined"); }
-        TVector<T> res(v);
+    bool operator==(const UpTrianglTMatrix& m) const noexcept {
+        if (_size != m._size) { return false; }
         for (int i = 0; i < _size; i++) {
-            TVector<T> tmp(pMem[i].size());
-            for (int i = 0; i < tmp.size(); i++) { tmp[i] = v[i]; }
-            res[i] = pMem[i] * tmp;;
+            for (int j = i; j < _size; j++) {
+                if (m[i][j] != pMem[i][j]) { return false; }
+            }
         }
-        return res;
-    }*/
+        return true;
+    }
+    bool operator!=(const UpTrianglTMatrix& m) const noexcept {
+        return !(*this == m);
+    }
+
+    friend std::ostream& operator<< <T>(std::ostream& ostr, const TMatrix<T>& v);
+};
+
+template<class T>
+class DownTrianglTMatrix : public TMatrix<T> {
+    using TMatrix<T>::pMem;
+    using TMatrix<T>::_size;
+public:
+    DownTrianglTMatrix(size_t s) : TMatrix<T>(s) {
+        for (size_t i = 0; i < s; i++)
+            pMem[i] = TVector<T>(i + 1);
+    }
+    using TMatrix<T>::operator[];
+    using TMatrix<T>::at;
+    using TMatrix<T>::size;
+    using TMatrix<T>::operator=;
+
+    bool operator==(const DownTrianglTMatrix& m) const noexcept {
+        if (_size != m._size) { return false; }
+        for (int i = 0; i < _size; i++) {
+            for (int j = 0; j <= i; j++) {
+                if (m[i][j] != pMem[i][j]) { return false; }
+            }
+        }
+        return true;
+    }
+    bool operator!=(const DownTrianglTMatrix& m) const noexcept {
+        return !(*this == m);
+    }
 
     friend std::ostream& operator<< <T>(std::ostream& ostr, const TMatrix<T>& v);
 };

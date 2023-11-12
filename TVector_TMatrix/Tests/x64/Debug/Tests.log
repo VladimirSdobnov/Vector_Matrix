@@ -1,18 +1,22 @@
 ﻿  test_matrix.cpp
 D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\qtest\gtest.h(1,1): warning C4005: _SILENCE_TR1_NAMESPACE_DEPRECATION_WARNING: изменение макроопределения
 D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\qtest\gtest.h(1,1): message : "_SILENCE_TR1_NAMESPACE_DEPRECATION_WARNING" ранее объявлен в командной строке
-D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\TVector\TVector.h(82,34): error C2440: return: невозможно преобразовать "InIterator<T>" в "InIterator<const T>"
+D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\TMatrix\matrix.h(170,36): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\TMatrix\matrix.h(168,5): message : во время компиляции функции-члена класс шаблон "DownTrianglTMatrix<std::string>::DownTrianglTMatrix(size_t)"
+D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\Tests\test_matrix.cpp(614,35): message : см. первую ссылку на "DownTrianglTMatrix<std::string>::DownTrianglTMatrix" в "DownTrianglTMatrix_copied_DownTrianglTMatrix_has_its_own_memory_Test::TestBody"
+D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\Tests\test_matrix.cpp(614,34): message : выполняется компиляция ссылки на экземпляр класс шаблон функции "DownTrianglTMatrix<std::string>"
+D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\TMatrix\matrix.h(140,37): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\TMatrix\matrix.h(138,5): message : во время компиляции функции-члена класс шаблон "UpTrianglTMatrix<std::string>::UpTrianglTMatrix(size_t)"
+D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\Tests\test_matrix.cpp(315,33): message : см. первую ссылку на "UpTrianglTMatrix<std::string>::UpTrianglTMatrix" в "UpTrianglTMatrix_copied_UpTrianglTMatrix_has_its_own_memory_Test::TestBody"
+D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\Tests\test_matrix.cpp(315,32): message : выполняется компиляция ссылки на экземпляр класс шаблон функции "UpTrianglTMatrix<std::string>"
+D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\TMatrix\matrix.h(140,34): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\TVector\TVector.h(274,16): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\TVector\TVector.h(273,7): message : во время компиляции функции-члена класс шаблон "T TVector<T>::operator *(const TVector<T> &) noexcept(false)"
           with
           [
               T=int
           ]
-D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\TVector\TVector.h(82,34): message : Для выполнения данного преобразования нет доступного оператора преобразования, определенного пользователем, или вызов оператора невозможен
-D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\TVector\TVector.h(82,20): message : во время компиляции функции-члена класс шаблон "InIterator<const T> TVector<T>::end(void) const"
-          with
-          [
-              T=int
-          ]
-D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\qtest\gtest.h(9469,3): message : см. первую ссылку на "TVector<T>::end" в "testing::internal::DefaultPrintTo"
+D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\Tests\test_matrix.cpp(425,10): message : см. первую ссылку на "TVector<T>::operator *" в "UpTrianglTMatrix_can_multiply_vector_Test::TestBody"
           with
           [
               T=int
@@ -22,45 +26,74 @@ D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\Tests\test_matrix.cpp(
           [
               T=int
           ]
-  test_vector.cpp
-D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\qtest\gtest.h(1,1): warning C4005: _SILENCE_TR1_NAMESPACE_DEPRECATION_WARNING: изменение макроопределения
-D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\qtest\gtest.h(1,1): message : "_SILENCE_TR1_NAMESPACE_DEPRECATION_WARNING" ранее объявлен в командной строке
-D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\Tests\test_vector.cpp(50,29): warning C4305: инициализация: усечение из "double" в "float"
-D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\Tests\test_vector.cpp(50,35): warning C4305: инициализация: усечение из "double" в "float"
-D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\Tests\test_vector.cpp(50,40): warning C4305: инициализация: усечение из "double" в "float"
-D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\qtest\gtest.h(18864,19): warning C4805: ==: небезопасное смешение типа "const T1" и типа "const T2" в операции
+D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\TVector\TVector.h(275,19): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\TMatrix\matrix.h(27,43): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\TMatrix\matrix.h(27,3): message : во время компиляции функции-члена класс шаблон "TMatrix<std::string>::TMatrix(size_t)"
+D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\Tests\test_matrix.cpp(29,24): message : см. первую ссылку на "TMatrix<std::string>::TMatrix" в "TVector_copied_matrix_has_its_own_memory_Test::TestBody"
+D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\Tests\test_matrix.cpp(29,23): message : выполняется компиляция ссылки на экземпляр класс шаблон функции "TMatrix<std::string>"
+D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\TMatrix\matrix.h(33,32): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\TMatrix\matrix.h(95,41): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\TMatrix\matrix.h(85,11): message : во время компиляции функции-члена класс шаблон "TMatrix<int> TMatrix<int>::operator *(const TMatrix<int> &)"
+D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\Tests\test_matrix.cpp(284,5): message : см. первую ссылку на "TMatrix<int>::operator *" в "TMatrix_can_multiply_matrices_with_equal_size_Test::TestBody"
+D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\Tests\test_matrix.cpp(5,3): message : выполняется компиляция ссылки на экземпляр класс шаблон функции "TMatrix<int>"
+D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\TMatrix\matrix.h(61,22): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\TMatrix\matrix.h(60,14): message : во время компиляции функции-члена класс шаблон "TVector<T> TMatrix<T>::operator *(const TVector<T> &)"
           with
           [
-              T1=bool
+              T=int
           ]
-          and
-          [
-              T2=int
-          ]
-D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\qtest\gtest.h(18900,12): message : выполняется компиляция ссылки на экземпляр шаблон функции "testing::AssertionResult testing::internal::CmpHelperEQ<T1,T2>(const char *,const char *,const T1 &,const T2 &)"
+D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\Tests\test_matrix.cpp(132,4): message : см. первую ссылку на "TMatrix<int>::operator *" в "TMatrix_can_multiply_vector_Test::TestBody"
+D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\TVector\TVector.h(286,30): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\TVector\TVector.h(285,10): message : во время компиляции функции-члена класс шаблон "void TVector<T>::append(const T &)"
           with
           [
-              T1=bool,
-              T2=int
+              T=int
           ]
-D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\Tests\test_vector.cpp(99,2): message : выполняется компиляция ссылки на экземпляр шаблон функции "testing::AssertionResult testing::internal::EqHelper<false>::Compare<bool,int>(const char *,const char *,const T1 &,const T2 &)"
+D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\TMatrix\matrix.h(92,25): message : см. первую ссылку на "TVector<T>::append" в "TMatrix<int>::operator *"
           with
           [
-              T1=bool,
-              T2=int
+              T=int
           ]
-D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\Tests\test_vector.cpp(99,2): message : см. первую ссылку на "testing::internal::EqHelper<false>::Compare" в "TVector_compare_equal_vectors_return_true_Test::TestBody"
-D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\TVector\TVector.h(82,34): error C2440: return: невозможно преобразовать "InIterator<T>" в "InIterator<const T>"
+D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\Tests\test_matrix.cpp(284,5): message : см. первую ссылку на "TMatrix<int>::operator *" в "TMatrix_can_multiply_matrices_with_equal_size_Test::TestBody"
+D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\TVector\TVector.h(266,20): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\TVector\TVector.h(263,13): message : во время компиляции функции-члена класс шаблон "TVector<T> TVector<T>::operator -(const TVector<T> &)"
           with
           [
-              T=unsigned int
+              T=int
           ]
-D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\TVector\TVector.h(82,34): message : Для выполнения данного преобразования нет доступного оператора преобразования, определенного пользователем, или вызов оператора невозможен
-D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\TVector\TVector.h(82,20): message : во время компиляции функции-члена класс шаблон "InIterator<const T> TVector<T>::end(void) const"
+D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\TMatrix\matrix.h(81,18): message : см. первую ссылку на "TVector<T>::operator -" в "TMatrix<int>::operator -"
           with
           [
-              T=unsigned int
+              T=int
           ]
-D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\qtest\gtest.h(9469,3): message : см. первую ссылку на "TVector<unsigned int>::end" в "testing::internal::DefaultPrintTo"
-D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\Tests\test_vector.cpp(57,24): message : выполняется компиляция ссылки на экземпляр класс шаблон функции "TVector<unsigned int>"
-  Создание кода...
+D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\Tests\test_matrix.cpp(195,5): message : см. первую ссылку на "TMatrix<int>::operator -" в "TMatrix_can_subtract_matrices_with_equal_size_Test::TestBody"
+D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\TVector\TVector.h(258,20): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\TVector\TVector.h(255,13): message : во время компиляции функции-члена класс шаблон "TVector<T> TVector<T>::operator +(const TVector<T> &)"
+          with
+          [
+              T=int
+          ]
+D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\TMatrix\matrix.h(73,18): message : см. первую ссылку на "TVector<T>::operator +" в "TMatrix<int>::operator +"
+          with
+          [
+              T=int
+          ]
+D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\Tests\test_matrix.cpp(172,5): message : см. первую ссылку на "TMatrix<int>::operator +" в "TMatrix_can_add_matrices_with_equal_size_Test::TestBody"
+D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\TVector\TVector.h(226,20): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\TVector\TVector.h(224,10): message : во время компиляции функции-члена класс шаблон "bool TVector<T>::operator ==(const TVector<T> &) noexcept const"
+          with
+          [
+              T=int
+          ]
+D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\TVector\TVector.h(230,9): message : см. первую ссылку на "TVector<T>::operator ==" в "TVector<T>::operator !="
+          with
+          [
+              T=int
+          ]
+D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\TMatrix\matrix.h(44,11): message : см. первую ссылку на "TVector<T>::operator !=" в "TMatrix<int>::operator =="
+          with
+          [
+              T=int
+          ]
+D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\Tests\test_matrix.cpp(87,2): message : см. первую ссылку на "TMatrix<int>::operator ==" в "TMatrix_compare_equal_matrices_return_true_Test::TestBody"
+  Tests.vcxproj -> D:\Visual Studio 2022\repos\devel_TMatrix\TVector_TMatrix\x64\Debug\Tests.exe

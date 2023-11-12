@@ -22,6 +22,13 @@ TEST(TVector, can_set_and_get_element) {
   EXPECT_EQ(4, v[0]);
 }
 
+TEST(TVector, can_append_element) {
+	TVector<int> v(4);
+	v.append(7);
+
+	EXPECT_EQ(7, v[v.size() - 1]);
+}
+
 TEST(TVector, throws_when_create_vector_with_negative_length) {
 	ASSERT_ANY_THROW(TVector<int> v(-5));
 }
@@ -192,18 +199,61 @@ TEST(TVector, can_multiply_vectors_with_equal_size) {
 	EXPECT_EQ(a, b);
 }
 
-TEST(TVector, cant_multiply_vectors_with_not_equal_size) {
-	unsigned int mass_str[5] = { 4, 6 , 4, 45, 5 };
-	unsigned int mass_str2[8] = { 12, 14 , 12, 53, 13, 14, 15, 16 };
-	TVector<unsigned int> v(mass_str, 5);
-	TVector<unsigned int> v2(mass_str2, 8);
-	ASSERT_ANY_THROW(v * v2);
+TEST(TVector, can_multiply_vectors_with_not_equal_size) {
+	unsigned int mass_str[4] = { 1, 2, 3, 4 };
+	unsigned int mass_str2[2] = { 1, 1 };
+	TVector<unsigned int> v(mass_str, 4);
+	TVector<unsigned int> v2(mass_str2, 2);
+	ASSERT_NO_THROW(v * v2);
+	EXPECT_EQ(v * v2, 3);
 }
 
 TEST(TVector, can_iterator) {
 	unsigned int mass_str[5] = { 4, 6 , 4, 45, 5 };
 	TVector<unsigned int> v(mass_str, 5);
-	for (TVector<unsigned int>::iterator i = v.begin(); i != v.end(); ++i) {
-		std::cout << *i << " ";
+	int a = 0;
+	for (auto i = v.begin_in(); i != v.end_in(); ++i) {
+		EXPECT_EQ(*i, v[a]);
+		a++;
 	}
+	a = 0;
+	for (auto i = v.begin_out(); i != v.end_out(); i++) {
+		EXPECT_NO_THROW(*i = 5);
+		EXPECT_EQ(*i, 5);
+		EXPECT_EQ(v[a], 5);
+	}
+	a = 0;
+	for (auto elem = v.begin(); elem != v.end(); elem++) {
+		*elem = 9;
+		EXPECT_EQ(v[a], 9);
+		a++;
+	}
+}
+
+TEST(TVector, can_fill) {
+	TVector<unsigned int> v(20);
+	fill(v.begin(), v.end(), 9);
+	for (auto elem : v) {
+		EXPECT_EQ(elem, 9);
+	}
+}
+TEST(TVector, can_count) {
+	TVector<unsigned int> v(20);
+	fill<unsigned int>(v.begin(), v.end(), 9);
+	EXPECT_EQ(20, count<unsigned int>(v.begin(), v.end(), 9));
+	int a = 0;
+	for (auto elem = v.begin(); elem != v.end(); elem++) {
+		if (a % 2 == 0) *elem = 4;
+		a++;
+	}
+	EXPECT_EQ(10, count<unsigned int>(v.begin(), v.end(), 9));
+}
+
+TEST(TVector, can_find) {
+	TVector<unsigned int> v(20);
+	v[16] = 15;
+	ForwardIterator<unsigned int> p = find<unsigned int>(v.begin(), v.end(), 15);
+	unsigned int res = *p;
+	EXPECT_EQ(15, res);
+	EXPECT_ANY_THROW(find<unsigned int>(v.begin(), v.end(), 10));
 }
